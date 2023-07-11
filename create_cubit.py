@@ -5,7 +5,7 @@ import subprocess
 cubit_name = input("Enter the name of the cubit: ")
 
 # Set the default directory path
-default_dir_path = '../lib/src/presentation/cubits'
+default_dir_path = './lib/src/presentation/cubits'
 dir_path = input(f"Enter the path to the cubits directory (default: {default_dir_path}): ") or default_dir_path
 
 # Ignore if cubit name is empty

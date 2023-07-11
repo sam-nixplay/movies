@@ -5,8 +5,8 @@ import subprocess
 repository_name = input("Enter the name of the repository: ")
 
 # Set the default directory paths
-default_domain_dir_path = f'../lib/src/domain/repositories/{repository_name.lower()}_repository'
-default_data_dir_path = f'../lib/src/data/repositories/{repository_name.lower()}_repository'
+default_domain_dir_path = f'./lib/src/domain/repositories/{repository_name.lower()}_repository'
+default_data_dir_path = f'./lib/src/data/repositories/{repository_name.lower()}_repository'
 
 # Ask for the custom domain directory path
 domain_dir_path = input(f"Enter the path to the domain repositories directory (default: {default_domain_dir_path}): ") or default_domain_dir_path

@@ -6,12 +6,16 @@ import re
 # Ask for model name
 model_name = input("Enter the name of the model: ")
 
+# Convert PascalCase to snake_case for file name
+file_name = re.sub(r'(?<!^)(?=[A-Z])', '_', model_name).lower()
+file_name += ".dart"
+
 # Ask for the directory path
 dir_path = input("Enter the path to the models directory (press Enter to use './lib/src/data/entities'): ")
 
 # Use default directory if no directory was provided
 if dir_path == "":
-    dir_path = "../lib/src/data/entities"
+    dir_path = "./lib/src/data/entities"
 
 # Ask for the path to the JSON file
 json_path = input("Enter the path to the JSON file: ")
@@ -20,7 +24,7 @@ json_path = input("Enter the path to the JSON file: ")
 os.makedirs(dir_path, exist_ok=True)
 
 # Define the file path
-file_path = os.path.join(dir_path, f"{model_name.lower()}.dart")
+file_path = os.path.join(dir_path, file_name)
 
 # Check if the file already exists
 if os.path.isfile(file_path):
@@ -38,23 +42,24 @@ def is_snake_case(s):
 
 params = ""
 
-if json_path:
-    # Load the JSON data
-    with open(json_path, 'r') as f:
-        data = json.load(f)
-    # Convert the JSON keys and types to Dart types
-    type_mapping = {
-        str: 'String?',
-        int: 'int?',
-        float: 'double?',
-        bool: 'bool?',
-        list: 'List<dynamic>?',
-        dict: 'Map<String, dynamic>?',
-        type(None): 'dynamic'
-    }
-    # Construct the parameters string
-    params = ", ".join([f'@JsonKey(name: "{key}") {type_mapping[type(value)]} {snake_to_camel(key)}' if is_snake_case(key) else f'{type_mapping[type(value)]} {key}' for key, value in data.items()])
-    params += ","
+# Load the JSON data
+with open(json_path, 'r') as f:
+    data = json.load(f)
+# Convert the JSON keys and types to Dart types
+type_mapping = {
+    str: 'String?',
+    int: 'int?',
+    float: 'double?',
+    bool: 'bool?',
+    list: 'List<dynamic>?',
+    dict: 'Map<String, dynamic>?',
+    type(None): 'dynamic'
+}
+# Construct the parameters string
+params = ", ".join([f'@JsonKey(name: "{key}") {type_mapping[type(value)]} {snake_to_camel(key)}' if is_snake_case(key) else f'{type_mapping[type(value)]} {key}' for key, value in data.items()])
+params += ","
+
+import_snake_case = re.sub(r'(?<!^)(?=[A-Z])', '_', model_name).lower()
 
 # Define the model template
 model_template = f"""
@@ -62,8 +67,8 @@ model_template = f"""
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '{model_name.lower()}.freezed.dart';
-part '{model_name.lower()}.g.dart';
+part '{import_snake_case}.freezed.dart';
+part '{import_snake_case}.g.dart';
 
 @freezed
 class {model_name} with _${model_name} {{
