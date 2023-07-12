@@ -81,6 +81,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: TextFormField(
+                      key: const Key('searchTextField'),
                       controller: _queryTextController,
                       decoration: const InputDecoration(
                         hintText: 'Search by name',
@@ -95,6 +96,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 const SizedBox(width: 20),
                 ElevatedButton(
+                  key: const Key('searchButton'),
                   onPressed: () {
                     _moviesCubit.searchMovies(query: _queryTextController.text);
                   },

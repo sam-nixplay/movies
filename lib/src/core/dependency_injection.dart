@@ -8,7 +8,7 @@ import 'package:movies/src/presentation/cubits/movies_cubit.dart';
 
 final getIt = GetIt.instance;
 
-void registerDependencies() {
+void registerDependencies({Dio? mockDio}) {
   final token = dotenv.env['API_TOKEN'];
 
   final dio = Dio();
@@ -18,7 +18,7 @@ void registerDependencies() {
   };
 
   getIt.registerLazySingleton<RestClient>(
-    () => RestClient(dio),
+    () => RestClient(mockDio ?? dio),
   );
 
   getIt.registerLazySingleton<MoviesRepository>(

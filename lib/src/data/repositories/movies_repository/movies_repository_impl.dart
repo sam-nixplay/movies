@@ -7,6 +7,8 @@ import 'package:movies/src/data/exceptions/movies_exception.dart';
 import 'package:movies/src/data/rest_client.dart';
 import 'package:movies/src/domain/repositories/movies_repository/movies_repository.dart';
 
+/// Implementation of the [MoviesRepository] interface for fetching movies.
+/// It extends the [MoviesRepository] abstract class and handles the actual fetching of movies from the API.
 class MoviesRepositoryImpl extends MoviesRepository {
   final RestClient _client;
 
@@ -18,7 +20,7 @@ class MoviesRepositoryImpl extends MoviesRepository {
     required int page,
   }) async {
     try {
-      final response = await _client.getMovies(query, page);
+      final response = await _client.getMovies(query: query, page: page);
       return Right(response);
     } on DioException catch (exc) {
       debugPrint(exc.message);
