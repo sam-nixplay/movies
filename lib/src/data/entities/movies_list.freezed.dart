@@ -20,12 +20,12 @@ MoviesList _$MoviesListFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MoviesList {
-  int? get page => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
   List<MovieSimple> get results => throw _privateConstructorUsedError;
   @JsonKey(name: "total_pages")
-  int? get totalPages => throw _privateConstructorUsedError;
+  int get totalPages => throw _privateConstructorUsedError;
   @JsonKey(name: "total_results")
-  int? get totalResults => throw _privateConstructorUsedError;
+  int get totalResults => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,10 +40,10 @@ abstract class $MoviesListCopyWith<$Res> {
       _$MoviesListCopyWithImpl<$Res, MoviesList>;
   @useResult
   $Res call(
-      {int? page,
+      {int page,
       List<MovieSimple> results,
-      @JsonKey(name: "total_pages") int? totalPages,
-      @JsonKey(name: "total_results") int? totalResults});
+      @JsonKey(name: "total_pages") int totalPages,
+      @JsonKey(name: "total_results") int totalResults});
 }
 
 /// @nodoc
@@ -59,28 +59,28 @@ class _$MoviesListCopyWithImpl<$Res, $Val extends MoviesList>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = freezed,
+    Object? page = null,
     Object? results = null,
-    Object? totalPages = freezed,
-    Object? totalResults = freezed,
+    Object? totalPages = null,
+    Object? totalResults = null,
   }) {
     return _then(_value.copyWith(
-      page: freezed == page
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       results: null == results
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
               as List<MovieSimple>,
-      totalPages: freezed == totalPages
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
-      totalResults: freezed == totalResults
+              as int,
+      totalResults: null == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -94,10 +94,10 @@ abstract class _$$_MoviesListCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? page,
+      {int page,
       List<MovieSimple> results,
-      @JsonKey(name: "total_pages") int? totalPages,
-      @JsonKey(name: "total_results") int? totalResults});
+      @JsonKey(name: "total_pages") int totalPages,
+      @JsonKey(name: "total_results") int totalResults});
 }
 
 /// @nodoc
@@ -111,28 +111,28 @@ class __$$_MoviesListCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = freezed,
+    Object? page = null,
     Object? results = null,
-    Object? totalPages = freezed,
-    Object? totalResults = freezed,
+    Object? totalPages = null,
+    Object? totalResults = null,
   }) {
     return _then(_$_MoviesList(
-      page: freezed == page
+      page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       results: null == results
           ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
               as List<MovieSimple>,
-      totalPages: freezed == totalPages
+      totalPages: null == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
-              as int?,
-      totalResults: freezed == totalResults
+              as int,
+      totalResults: null == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -141,17 +141,17 @@ class __$$_MoviesListCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MoviesList implements _MoviesList {
   const _$_MoviesList(
-      {this.page,
+      {required this.page,
       required final List<MovieSimple> results,
-      @JsonKey(name: "total_pages") this.totalPages,
-      @JsonKey(name: "total_results") this.totalResults})
+      @JsonKey(name: "total_pages") required this.totalPages,
+      @JsonKey(name: "total_results") required this.totalResults})
       : _results = results;
 
   factory _$_MoviesList.fromJson(Map<String, dynamic> json) =>
       _$$_MoviesListFromJson(json);
 
   @override
-  final int? page;
+  final int page;
   final List<MovieSimple> _results;
   @override
   List<MovieSimple> get results {
@@ -162,10 +162,10 @@ class _$_MoviesList implements _MoviesList {
 
   @override
   @JsonKey(name: "total_pages")
-  final int? totalPages;
+  final int totalPages;
   @override
   @JsonKey(name: "total_results")
-  final int? totalResults;
+  final int totalResults;
 
   @override
   String toString() {
@@ -206,24 +206,25 @@ class _$_MoviesList implements _MoviesList {
 
 abstract class _MoviesList implements MoviesList {
   const factory _MoviesList(
-      {final int? page,
-      required final List<MovieSimple> results,
-      @JsonKey(name: "total_pages") final int? totalPages,
-      @JsonKey(name: "total_results") final int? totalResults}) = _$_MoviesList;
+          {required final int page,
+          required final List<MovieSimple> results,
+          @JsonKey(name: "total_pages") required final int totalPages,
+          @JsonKey(name: "total_results") required final int totalResults}) =
+      _$_MoviesList;
 
   factory _MoviesList.fromJson(Map<String, dynamic> json) =
       _$_MoviesList.fromJson;
 
   @override
-  int? get page;
+  int get page;
   @override
   List<MovieSimple> get results;
   @override
   @JsonKey(name: "total_pages")
-  int? get totalPages;
+  int get totalPages;
   @override
   @JsonKey(name: "total_results")
-  int? get totalResults;
+  int get totalResults;
   @override
   @JsonKey(ignore: true)
   _$$_MoviesListCopyWith<_$_MoviesList> get copyWith =>

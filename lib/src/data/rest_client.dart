@@ -11,5 +11,6 @@ abstract class RestClient {
   @GET("/search/movie")
   Future<MoviesList> getMovies(
     @Query("query") String query,
+    @Query("page") int page,
   );
 }

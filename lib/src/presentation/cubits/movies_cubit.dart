@@ -7,11 +7,19 @@ class MoviesCubit extends Cubit<MoviesState> {
 
   MoviesCubit(this._moviesRepository) : super(const MoviesState.initial());
 
-  void fetchMovies({required String query}) async {
-    final either = await _moviesRepository.fetchMovies(query: query);
+  void searchMovies({required String query, int page = 1}) async {
+    emit(const MoviesState.pending());
+
+    final either =
+        await _moviesRepository.fetchMovies(query: query, page: page);
     either.fold(
       (error) => emit(MoviesState.error(error.message ?? '')),
-      (movies) => emit(MoviesState.set(movies: movies)),
+      (moviesList) {
+        emit(MoviesState.set(
+          movies: moviesList.results,
+          page: moviesList.page,
+        ));
+      },
     );
   }
 }

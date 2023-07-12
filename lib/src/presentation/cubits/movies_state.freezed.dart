@@ -20,7 +20,7 @@ mixin _$MoviesState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() pending,
-    required TResult Function(List<MovieSimple> movies) set,
+    required TResult Function(List<MovieSimple> movies, int page) set,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$MoviesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? pending,
-    TResult? Function(List<MovieSimple> movies)? set,
+    TResult? Function(List<MovieSimple> movies, int page)? set,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$MoviesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? pending,
-    TResult Function(List<MovieSimple> movies)? set,
+    TResult Function(List<MovieSimple> movies, int page)? set,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -45,7 +45,7 @@ mixin _$MoviesState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Pending value) pending,
-    required TResult Function(_Set value) set,
+    required TResult Function(MoviesSetState value) set,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ mixin _$MoviesState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Pending value)? pending,
-    TResult? Function(_Set value)? set,
+    TResult? Function(MoviesSetState value)? set,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ mixin _$MoviesState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Pending value)? pending,
-    TResult Function(_Set value)? set,
+    TResult Function(MoviesSetState value)? set,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -125,7 +125,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() pending,
-    required TResult Function(List<MovieSimple> movies) set,
+    required TResult Function(List<MovieSimple> movies, int page) set,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -136,7 +136,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? pending,
-    TResult? Function(List<MovieSimple> movies)? set,
+    TResult? Function(List<MovieSimple> movies, int page)? set,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -147,7 +147,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? pending,
-    TResult Function(List<MovieSimple> movies)? set,
+    TResult Function(List<MovieSimple> movies, int page)? set,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -162,7 +162,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Pending value) pending,
-    required TResult Function(_Set value) set,
+    required TResult Function(MoviesSetState value) set,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -173,7 +173,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Pending value)? pending,
-    TResult? Function(_Set value)? set,
+    TResult? Function(MoviesSetState value)? set,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -184,7 +184,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Pending value)? pending,
-    TResult Function(_Set value)? set,
+    TResult Function(MoviesSetState value)? set,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -238,7 +238,7 @@ class _$_Pending implements _Pending {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() pending,
-    required TResult Function(List<MovieSimple> movies) set,
+    required TResult Function(List<MovieSimple> movies, int page) set,
     required TResult Function(String message) error,
   }) {
     return pending();
@@ -249,7 +249,7 @@ class _$_Pending implements _Pending {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? pending,
-    TResult? Function(List<MovieSimple> movies)? set,
+    TResult? Function(List<MovieSimple> movies, int page)? set,
     TResult? Function(String message)? error,
   }) {
     return pending?.call();
@@ -260,7 +260,7 @@ class _$_Pending implements _Pending {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? pending,
-    TResult Function(List<MovieSimple> movies)? set,
+    TResult Function(List<MovieSimple> movies, int page)? set,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -275,7 +275,7 @@ class _$_Pending implements _Pending {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Pending value) pending,
-    required TResult Function(_Set value) set,
+    required TResult Function(MoviesSetState value) set,
     required TResult Function(_Error value) error,
   }) {
     return pending(this);
@@ -286,7 +286,7 @@ class _$_Pending implements _Pending {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Pending value)? pending,
-    TResult? Function(_Set value)? set,
+    TResult? Function(MoviesSetState value)? set,
     TResult? Function(_Error value)? error,
   }) {
     return pending?.call(this);
@@ -297,7 +297,7 @@ class _$_Pending implements _Pending {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Pending value)? pending,
-    TResult Function(_Set value)? set,
+    TResult Function(MoviesSetState value)? set,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -313,37 +313,47 @@ abstract class _Pending implements MoviesState {
 }
 
 /// @nodoc
-abstract class _$$_SetCopyWith<$Res> {
-  factory _$$_SetCopyWith(_$_Set value, $Res Function(_$_Set) then) =
-      __$$_SetCopyWithImpl<$Res>;
+abstract class _$$MoviesSetStateCopyWith<$Res> {
+  factory _$$MoviesSetStateCopyWith(
+          _$MoviesSetState value, $Res Function(_$MoviesSetState) then) =
+      __$$MoviesSetStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<MovieSimple> movies});
+  $Res call({List<MovieSimple> movies, int page});
 }
 
 /// @nodoc
-class __$$_SetCopyWithImpl<$Res> extends _$MoviesStateCopyWithImpl<$Res, _$_Set>
-    implements _$$_SetCopyWith<$Res> {
-  __$$_SetCopyWithImpl(_$_Set _value, $Res Function(_$_Set) _then)
+class __$$MoviesSetStateCopyWithImpl<$Res>
+    extends _$MoviesStateCopyWithImpl<$Res, _$MoviesSetState>
+    implements _$$MoviesSetStateCopyWith<$Res> {
+  __$$MoviesSetStateCopyWithImpl(
+      _$MoviesSetState _value, $Res Function(_$MoviesSetState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? movies = null,
+    Object? page = null,
   }) {
-    return _then(_$_Set(
+    return _then(_$MoviesSetState(
       movies: null == movies
           ? _value._movies
           : movies // ignore: cast_nullable_to_non_nullable
               as List<MovieSimple>,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Set implements _Set {
-  const _$_Set({required final List<MovieSimple> movies}) : _movies = movies;
+class _$MoviesSetState implements MoviesSetState {
+  const _$MoviesSetState(
+      {required final List<MovieSimple> movies, required this.page})
+      : _movies = movies;
 
   final List<MovieSimple> _movies;
   @override
@@ -354,37 +364,41 @@ class _$_Set implements _Set {
   }
 
   @override
+  final int page;
+
+  @override
   String toString() {
-    return 'MoviesState.set(movies: $movies)';
+    return 'MoviesState.set(movies: $movies, page: $page)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Set &&
-            const DeepCollectionEquality().equals(other._movies, _movies));
+            other is _$MoviesSetState &&
+            const DeepCollectionEquality().equals(other._movies, _movies) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_movies));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_movies), page);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SetCopyWith<_$_Set> get copyWith =>
-      __$$_SetCopyWithImpl<_$_Set>(this, _$identity);
+  _$$MoviesSetStateCopyWith<_$MoviesSetState> get copyWith =>
+      __$$MoviesSetStateCopyWithImpl<_$MoviesSetState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() pending,
-    required TResult Function(List<MovieSimple> movies) set,
+    required TResult Function(List<MovieSimple> movies, int page) set,
     required TResult Function(String message) error,
   }) {
-    return set(movies);
+    return set(movies, page);
   }
 
   @override
@@ -392,10 +406,10 @@ class _$_Set implements _Set {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? pending,
-    TResult? Function(List<MovieSimple> movies)? set,
+    TResult? Function(List<MovieSimple> movies, int page)? set,
     TResult? Function(String message)? error,
   }) {
-    return set?.call(movies);
+    return set?.call(movies, page);
   }
 
   @override
@@ -403,12 +417,12 @@ class _$_Set implements _Set {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? pending,
-    TResult Function(List<MovieSimple> movies)? set,
+    TResult Function(List<MovieSimple> movies, int page)? set,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (set != null) {
-      return set(movies);
+      return set(movies, page);
     }
     return orElse();
   }
@@ -418,7 +432,7 @@ class _$_Set implements _Set {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Pending value) pending,
-    required TResult Function(_Set value) set,
+    required TResult Function(MoviesSetState value) set,
     required TResult Function(_Error value) error,
   }) {
     return set(this);
@@ -429,7 +443,7 @@ class _$_Set implements _Set {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Pending value)? pending,
-    TResult? Function(_Set value)? set,
+    TResult? Function(MoviesSetState value)? set,
     TResult? Function(_Error value)? error,
   }) {
     return set?.call(this);
@@ -440,7 +454,7 @@ class _$_Set implements _Set {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Pending value)? pending,
-    TResult Function(_Set value)? set,
+    TResult Function(MoviesSetState value)? set,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -451,12 +465,16 @@ class _$_Set implements _Set {
   }
 }
 
-abstract class _Set implements MoviesState {
-  const factory _Set({required final List<MovieSimple> movies}) = _$_Set;
+abstract class MoviesSetState implements MoviesState {
+  const factory MoviesSetState(
+      {required final List<MovieSimple> movies,
+      required final int page}) = _$MoviesSetState;
 
   List<MovieSimple> get movies;
+  int get page;
   @JsonKey(ignore: true)
-  _$$_SetCopyWith<_$_Set> get copyWith => throw _privateConstructorUsedError;
+  _$$MoviesSetStateCopyWith<_$MoviesSetState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -523,7 +541,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() pending,
-    required TResult Function(List<MovieSimple> movies) set,
+    required TResult Function(List<MovieSimple> movies, int page) set,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -534,7 +552,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? pending,
-    TResult? Function(List<MovieSimple> movies)? set,
+    TResult? Function(List<MovieSimple> movies, int page)? set,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -545,7 +563,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? pending,
-    TResult Function(List<MovieSimple> movies)? set,
+    TResult Function(List<MovieSimple> movies, int page)? set,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -560,7 +578,7 @@ class _$_Error implements _Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Pending value) pending,
-    required TResult Function(_Set value) set,
+    required TResult Function(MoviesSetState value) set,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -571,7 +589,7 @@ class _$_Error implements _Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Pending value)? pending,
-    TResult? Function(_Set value)? set,
+    TResult? Function(MoviesSetState value)? set,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -582,7 +600,7 @@ class _$_Error implements _Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Pending value)? pending,
-    TResult Function(_Set value)? set,
+    TResult Function(MoviesSetState value)? set,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

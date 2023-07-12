@@ -21,9 +21,15 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<MoviesList> getMovies(String query) async {
+  Future<MoviesList> getMovies(
+    String query,
+    int page,
+  ) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'query': query};
+    final queryParameters = <String, dynamic>{
+      r'query': query,
+      r'page': page,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
