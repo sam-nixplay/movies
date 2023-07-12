@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:mocktail/mocktail.dart';
 
+//Flutter integration tests do not allow for any network calls to be made.
+//So we make our own mocked version of Dio that returns a response with the data we want.
 class MockDio extends Mock implements Dio {
   final Map<String, dynamic> responseData;
 
