@@ -57,23 +57,37 @@ A Flutter project that fetches movies from [TheMovieDB](https://www.themoviedb.o
 
 6. **Setting up API Token**
 
-   The app expects an API token from [TheMovieDB](https://www.themoviedb.org/) to be available in an `.env` file located at the root of the project. Create or modify the `.env` file and add your API token as follows:
+   The app expects an API token from [TheMovieDB](https://www.themoviedb.org/) to be available in the starting variables when running the flutter app. Modify the `launch.json` file (in using VS Code) or set local environment variable and add your API token as follows:
+
    ```plaintext
-   API_TOKEN=YOUR_THEMOVIEDB_API_TOKEN
+   --dart-define=API_TOKEN=YOUR_API_TOKEN
+   ```
+
+   or 
+
+   ```json
+      {
+         "name": "movies",
+         "request": "launch",
+         "type": "dart",
+         "args": [
+               "--dart-define", "API_TOKEN=YOUR_API_TOKEN",
+         ],
+      },
    ```
 
 ## Usage
 
 1. **Run the app**
    ```bash
-   flutter run
+   flutter run --dart-define=API_TOKEN=YOUR_API_TOKEN
    ```
 
 ## Testing
 
 1. **Run tests**
    ```bash
-   flutter test
+   flutter test --dart-define=API_TOKEN=YOUR_API_TOKEN
    ```
 
 ## Dependencies

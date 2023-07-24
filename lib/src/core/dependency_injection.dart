@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movies/src/data/repositories/movies_repository/movies_repository_impl.dart';
 import 'package:movies/src/data/rest_client.dart';
@@ -9,7 +8,7 @@ import 'package:movies/src/presentation/cubits/movies_cubit.dart';
 final getIt = GetIt.instance;
 
 void registerDependencies({Dio? mockDio}) {
-  final token = dotenv.env['API_TOKEN'];
+  const token = String.fromEnvironment('API_TOKEN', defaultValue: '');
 
   final dio = Dio();
   dio.options.headers = {

@@ -1,4 +1,3 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:movies/src/core/dependency_injection.dart';
 import 'package:movies/src/movie_app.dart';
@@ -10,8 +9,6 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUpAll(() async {
-    await dotenv.load(fileName: ".env");
-
     registerDependencies(
       mockDio: MockDio(
         responseData: {
